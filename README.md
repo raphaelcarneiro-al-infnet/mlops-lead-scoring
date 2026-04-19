@@ -6,22 +6,30 @@ Projeto de operacionalização de modelo de machine learning para previsão de m
 Prever a probabilidade de um lead se matricular em um curso de pós-graduação, permitindo que o time de Marketing priorize contatos com maior potencial de conversão no HubSpot.
 
 ## Estrutura do Projeto
+
+```
 lead-scoring-mlops/
-├── configs/          # Configurações de dados e pipeline
-├── data/raw/         # Dataset bruto do HubSpot
-├── src/              # Scripts principais
-│   ├── ingest.py         # Ingestão e limpeza dos dados
-│   ├── preprocess.py     # Pipeline de pré-processamento
-│   ├── train.py          # Treinamento + registro MLflow
-│   ├── dimensionality.py # Redução de dimensionalidade
-│   ├── evaluate.py       # Avaliação e comparação
-│   └── monitoring.py     # Monitoramento em produção
+├── configs/
+│   ├── data.yaml
+│   └── pipeline.yaml
+├── data/raw/
+├── src/
+│   ├── ingest.py
+│   ├── preprocess.py
+│   ├── train.py
+│   ├── dimensionality.py
+│   ├── evaluate.py
+│   └── monitoring.py
 ├── api/
-│   └── app.py        # API FastAPI de inferência
-├── models/           # Modelos treinados (.pkl)
-├── outputs/          # Gráficos gerados
-├── mlruns/           # Experimentos MLflow
-└── notebooks/        # Exploração visual
+│   └── app.py
+├── models/
+├── outputs/
+├── mlruns/
+├── notebooks/
+├── .gitignore
+├── README.md
+└── requirements.txt
+```
 
 ## Como Executar
 
@@ -38,8 +46,8 @@ python src/train.py
 ### 3. Visualizar experimentos no MLflow
 ```bash
 mlflow ui --backend-store-uri mlruns
-# Acesse http://localhost:5000
 ```
+Acesse http://localhost:5000
 
 ### 4. Redução de dimensionalidade
 ```bash
@@ -49,8 +57,8 @@ python src/dimensionality.py
 ### 5. Subir a API de inferência
 ```bash
 uvicorn api.app:app --reload
-# Acesse http://127.0.0.1:8000/docs
 ```
+Acesse http://127.0.0.1:8000/docs
 
 ### 6. Monitoramento
 ```bash
@@ -69,4 +77,4 @@ python src/monitoring.py
 **Modelo escolhido: Random Forest** — melhor F1 e CV F1, com Recall de 77%.
 
 ## Tecnologias
-- Python 3.11 | scikit-learn | MLflow | FastAPI | XGBoost | pandas
+Python 3.11 | scikit-learn | MLflow | FastAPI | XGBoost | pandas
