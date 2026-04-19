@@ -1,0 +1,25 @@
+dataset:
+  path: "data/raw/leads.csv"
+  target_column: "matriculou"
+  test_size: 0.2
+  random_state: 42
+  stratify: true
+
+features:
+  numerical:
+    - "E-mails de marketing abertos"
+    - "E-mails de marketing clicados"
+    - "Número de sessões"
+    - "Número de visualizações de página"
+  categorical:
+    - "Fonte original"
+    - "CodPrograma"
+    - "Estado/Região"
+    - "Área de formação"
+    - "Área de trabalho"
+    - "Persona"
+    - "Cargo"
+
+class_imbalance:
+  strategy: "smote"
+  random_state: 42

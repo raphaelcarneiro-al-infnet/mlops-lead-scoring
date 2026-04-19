@@ -1,0 +1,42 @@
+preprocessing:
+  numerical:
+    scaler: "StandardScaler"
+    imputer: "median"
+  categorical:
+    encoder: "OneHotEncoder"
+    imputer: "most_frequent"
+    handle_unknown: "ignore"
+
+cross_validation:
+  folds: 5
+  scoring: "f1"
+  random_state: 42
+
+models:
+  perceptron:
+    max_iter: 1000
+    random_state: 42
+    class_weight: "balanced"
+  decision_tree:
+    max_depth: 10
+    min_samples_leaf: 5
+    min_samples_split: 100
+    random_state: 42
+    class_weight: "balanced"
+  random_forest:
+    n_estimators: 300
+    max_depth: 15
+    min_samples_leaf: 5
+    random_state: 42
+    class_weight: "balanced"
+  xgboost:
+    n_estimators: 300
+    max_depth: 6
+    learning_rate: 0.05
+    random_state: 42
+    scale_pos_weight: 19
+
+mlflow:
+  experiment_name: "lead-scoring-posgrad"
+  tracking_uri: "mlruns"
+  model_registry_name: "lead-scoring-model"

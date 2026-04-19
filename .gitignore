@@ -1,0 +1,23 @@
+# Dados sensíveis e grandes
+data/
+
+# Modelos treinados (grandes)
+models/
+
+# MLflow (gerado localmente)
+mlruns/
+
+# Ambiente virtual
+venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Outputs gerados
+outputs/
+
+# VSCode
+.vscode/
